@@ -141,12 +141,55 @@ public class FirstClass {
         int[] sortedArr = sortIntegers(unsortedArr);
         System.out.println(Arrays.toString(sortedArr));
 
+
+        int[] arr = {2,3,4,56,6,76,7}; // anonymous array
+        int[] arr1 = new int[10];
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = i+3;
+        }
+        System.out.println("array 1 "+ Arrays.toString(arr1));
+
         Scanner sca = new Scanner(System.in);
         System.out.println("Enter search target:");
         int target = sca.nextInt();
 
         System.out.println("Index: "+binarySearch(sortedArr, target));
 
+        String[] splitString = "Hello World again".split(" ");
+        printString(splitString);
+
+        int [][] array2D = new int[5][4];
+        for (int[] item: array2D) {
+            System.out.println(Arrays.toString(item));
+        }
+        System.out.println(("-").repeat(20));
+        for (int i = 0; i < array2D.length ; i++) {
+            var innerArr = array2D[i];
+            for (int j = 0; j < innerArr.length; j++) {
+                System.out.print(array2D[i][j]+ " ");
+            }
+            System.out.println();
+        }
+        System.out.println(("-").repeat(20));
+        for (int i = 0; i < array2D.length; i++) {
+            for (int j = 0; j < array2D[i].length; j++) {
+                System.out.print(array2D[i][j]+ " ");
+            }
+            System.out.println();
+        }
+        System.out.println(("-").repeat(20));
+        for (var outer: array2D) {
+            for (var el: outer) {
+                System.out.print(el+ " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void printString (String[] input){
+        for (String t : input){
+            System.out.println(t);
+        }
     }
 
     public static int binarySearch(int[] arr, int target){
