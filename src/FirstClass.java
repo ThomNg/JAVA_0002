@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class FirstClass {
 
@@ -142,7 +140,7 @@ public class FirstClass {
         System.out.println(Arrays.toString(sortedArr));
 
 
-        int[] arr = {2,3,4,56,6,76,7}; // anonymous array
+
         int[] arr1 = new int[10];
         for (int i = 0; i < arr1.length; i++) {
             arr1[i] = i+3;
@@ -184,6 +182,28 @@ public class FirstClass {
             }
             System.out.println();
         }
+
+        array2D[0] = new int[]{2,4,5,7,8,9};
+        array2D[4] = new int[]{2,4,5,7,8,9};
+        System.out.println(Arrays.deepToString(array2D));
+
+        ArrayList<String> stringList = new ArrayList<>();
+        stringList.add("Hello world");
+        stringList.add("Jakarta");
+        stringList.add("Bandung");
+
+        System.out.println(stringList);
+
+        String[] items = {"abs", "muki", "pisang"};
+        System.out.println(items[0]);
+        List<String> list = List.of(items);// Still array of String which is immutable
+        // list.add("Banana"); result in exception
+        System.out.println(list.get(0));
+
+        ArrayList<String> anotherList = new ArrayList<>(List.of("Roboter","Picture","cats"));
+        stringList.addAll(anotherList);
+        System.out.println(stringList);
+
     }
 
     private static void printString (String[] input){
@@ -262,8 +282,7 @@ public class FirstClass {
     }
 
     public static boolean isEvenNumber (int n){
-        if(n%2 == 0) return true;
-        return false;
+        return n % 2 == 0;
     }
 }
 
