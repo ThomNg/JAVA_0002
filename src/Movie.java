@@ -25,6 +25,9 @@ class Horror extends Movie{
         super(name);
     }
 
+    public void displayHorror(){
+        System.out.println("Entering a dark cave full of maggots");
+    }
     @Override
     public void watchMovie() {
         super.watchMovie();

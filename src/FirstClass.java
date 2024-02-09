@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FirstClass {
@@ -128,6 +130,67 @@ public class FirstClass {
             Movie movi = Movie.getMovie(type, title);
             movi.watchMovie();
         }
+
+        var horror = Movie.getMovie("H", "kuntilanak");
+        Horror h = (Horror) horror;
+        h.displayHorror();
+
+        int[] unsortedArr = getRandomArray(7);
+        System.out.println("Unsorted Array:"+ Arrays.toString(unsortedArr));
+        System.out.printf("Sorted Array:");
+        int[] sortedArr = sortIntegers(unsortedArr);
+        System.out.println(Arrays.toString(sortedArr));
+
+        Scanner sca = new Scanner(System.in);
+        System.out.println("Enter search target:");
+        int target = sca.nextInt();
+
+        System.out.println("Index: "+binarySearch(sortedArr, target));
+
+    }
+
+    public static int binarySearch(int[] arr, int target){
+        int l = 0;
+        int r = arr.length-1;
+
+        while(l<=r){
+            int m = (l+r) / 2;
+            if(arr[m] < target){
+                l = m+1;
+            } else if (arr[m]>target){
+                r = m-1;
+            }else
+                return m;
+        }
+        return -1;
+    }
+
+    public static int[] sortIntegers (int[] input){
+        int [] sortedArr = Arrays.copyOf(input, input.length);
+        boolean flag = true;
+        int temp = 0;
+
+        while(flag){
+            flag = false;
+            for (int i = 0; i < sortedArr.length-1; i++) {
+                if(sortedArr[i] > sortedArr[i+1]){
+                    temp = sortedArr[i];
+                    sortedArr[i] = sortedArr[i+1];
+                    sortedArr[i+1] = temp;
+                    flag = true;
+                }
+            }
+        }
+        return sortedArr;
+    }
+
+    public static int[] getRandomArray(int n){
+        Random ran = new Random();
+        int[] randomArray = new int[n];
+        for (int i = 0; i < randomArray.length; i++) {
+            randomArray[i] = ran.nextInt(1000);
+        }
+        return randomArray;
     }
     public static String getDurationString(int seconds){
         return seconds/3600 + "h "+ (seconds/60)%60+ "m "+ (seconds %60)+"s";
