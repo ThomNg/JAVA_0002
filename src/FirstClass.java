@@ -203,6 +203,7 @@ public class FirstClass {
         ArrayList<String> anotherList = new ArrayList<>(List.of("Roboter","Picture","cats"));
         stringList.addAll(anotherList);
         System.out.println(stringList);
+        
 
     }
 
